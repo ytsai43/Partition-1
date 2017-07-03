@@ -11,13 +11,7 @@ def kdtree(range_list, depth=0):
     axis = depth % k # Select axis based on depth so that axis cycles through all valid values
 
     if abs(range_list[axis][1] - range_list[axis][0]) < 2:  #Set the condition that the range cann't be divided 
-        
-        axis_hat = axis
-        axis = (axis + 1)%k
-        while((abs(range_list[axis][1] - range_list[axis][0]) < 2 and axis != axis_hat)):
-            axis = (axis + 1)%k
-        if axis == axis_hat:
-            return Node(
+        return Node(
                 location = range_list,
                 left_child= None,
                 right_child= None )
@@ -36,7 +30,7 @@ def kdtree(range_list, depth=0):
 
 def main():
     """Example usage"""
-    range_list = [(0,2),(0,3)]
+    range_list = [(0,4),(0,8)]
     tree = kdtree(range_list)
     print(tree)
 
